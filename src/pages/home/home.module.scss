@@ -1,10 +1,19 @@
+$primary-light: #936900;
+$primary-main: #b17e00;
+$primary-dark: #ffd66d;
+
+$secondary-light: #78ffde;
+$secondary-main: #00ffc1;
+$secondary-dark: #008d6b;
 $navbar-offset: 80px;
 
 .container {
-  padding: 1rem;
-
   :where(h1, h2, h3, h4, h5, h6) {
     margin: 0.5rem 0;
+  }
+
+  & > * {
+    padding: 1rem;
   }
 }
 
@@ -14,6 +23,44 @@ $navbar-offset: 80px;
 
   h1 {
     font-size: 3.2rem;
+  }
+
+  .bookItem {
+    background-color: pink;
+    height: 200px;
+    width: 150px;
+    padding: 1rem;
+  }
+}
+
+.categorySection {
+  padding-top: $navbar-offset;
+  min-height: 100lvh;
+  text-align: center;
+
+  .categories {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2rem 0;
+
+    & > * {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.trendingBooks {
+  padding-top: $navbar-offset;
+  min-height: 100lvh;
+
+  h1 {
+    font-size: 3.2rem;
+    margin: 3rem 0;
   }
 
   .bookItem {
