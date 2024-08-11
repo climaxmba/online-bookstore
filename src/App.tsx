@@ -1,35 +1,80 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { createTheme, ThemeProvider } from "@mui/material";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Home from "./pages/home/Home";
+import Error from "./pages/404/Error";
+import Deals from "./pages/deals/Deals";
+import Books from "./pages/books/Books";
+import Details from "./pages/books/detals/Details";
+import Wishlist from "./pages/wishlist/Wishlist";
+import Search from "./pages/search/Search";
+import Cart from "./pages/cart/Cart";
+import Checkout from "./pages/checkout/Checkout";
+
+import { paths } from "./_lib/constants";
+import { store } from "./_lib/redux/store";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "#936900",
+      main: "#b17e00",
+      dark: "#ffd66d",
+    },
+    secondary: {
+      light: "#78ffde",
+      main: "#00ffc1",
+      dark: "#008d6b",
+    }
+  }
+});
+
+export default function App() {
+  const router = createBrowserRouter([
+    {
+      path: paths.root,
+      element: <Home />,
+      errorElement: <Error />,
+    },
+    {
+      path: paths.deals,
+      element: <Deals />,
+    },
+    {
+      path: paths.books,
+      element: <Books />,
+      children: [
+        {
+          path: paths.details,
+          element: <Details />,
+        },
+      ],
+    },
+    {
+      path: paths.wishlist,
+      element: <Wishlist />,
+    },
+    {
+      path: paths.search,
+      element: <Search />,
+    },
+    {
+      path: paths.cart,
+      element: <Cart />,
+    },
+    {
+      path: paths.checkout,
+      element: <Checkout />,
+    },
+  ]);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <RouterProvider router={router} />
+        </Provider>
+    </ThemeProvider>
+  );
 }
 
-export default App

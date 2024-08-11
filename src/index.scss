@@ -1,0 +1,66 @@
+$primary-light: #936900;
+$primary-main: #b17e00;
+$primary-dark: #ffd66d;
+
+$secondary-light: #78ffde;
+$secondary-main: #00ffc1;
+$secondary-dark: #008d6b;
+
+:root {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #252525;
+  background-color: #fff1e6;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 600;
+  color: lighten($color: $secondary-dark, $amount: 8);
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: $secondary-dark;
+}
+
+body {
+  margin: 0;
+  min-width: 300px;
+  min-height: 100vh;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  color: $primary-main;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+}
+
+// button {
+//   border-radius: 8px;
+//   border: 1px solid transparent;
+//   padding: 0.6em 1.2em;
+//   font-size: 1em;
+//   font-weight: 500;
+//   font-family: inherit;
+//   background-color: #1a1a1a;
+//   cursor: pointer;
+//   transition: border-color 0.25s;
+// }
+// button:hover {
+//   border-color: #646cff;
+// }
+// button:focus,
+// button:focus-visible {
+//   outline: 4px auto -webkit-focus-ring-color;
+// }
