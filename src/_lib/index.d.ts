@@ -17,3 +17,8 @@ interface Book {
   image: string;
   discount: number;
 }
+
+interface CartItem {
+  item: Book;
+  quantity: number;
+}
