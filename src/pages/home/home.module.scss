@@ -1,0 +1,25 @@
+$navbar-offset: 80px;
+
+.container {
+  padding: 1rem;
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    margin: 0.5rem 0;
+  }
+}
+
+.heroSection {
+  padding-top: $navbar-offset;
+  min-height: 100lvh;
+
+  h1 {
+    font-size: 3.2rem;
+  }
+
+  .bookItem {
+    background-color: pink;
+    height: 200px;
+    width: 150px;
+    padding: 1rem;
+  }
+}

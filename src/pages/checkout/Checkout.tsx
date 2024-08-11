@@ -1,5 +1,7 @@
 // import styles from "./checkout.module.scss";
 
+import Layout from "../../components/layout/Layout";
+
 export default function Checkout() {
-  return <div>Checkout</div>;
+  return <Layout>Checkout</Layout>;
 }

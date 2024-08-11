@@ -1,5 +1,7 @@
 // import styles from "./deals.module.scss";
 
+import Layout from "../../components/layout/Layout";
+
 export default function Deals() {
-  return <div>Deals</div>;
+  return <Layout>Deals</Layout>;
 }
