@@ -1,19 +1,13 @@
-$primary-light: #936900;
-$primary-main: #b17e00;
-$primary-dark: #ffd66d;
-
-$secondary-light: #78ffde;
-$secondary-main: #00ffc1;
-$secondary-dark: #008d6b;
+@import "./_lib/globals.scss";
 
 :root {
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: #252525;
-  background-color: #fff1e6;
+  background-color: whitesmoke;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

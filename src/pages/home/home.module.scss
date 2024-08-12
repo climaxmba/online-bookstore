@@ -1,11 +1,4 @@
-$primary-light: #936900;
-$primary-main: #b17e00;
-$primary-dark: #ffd66d;
-
-$secondary-light: #78ffde;
-$secondary-main: #00ffc1;
-$secondary-dark: #008d6b;
-$navbar-offset: 80px;
+@import "../../_lib/globals.scss";
 
 .container {
   :where(h1, h2, h3, h4, h5, h6) {
@@ -26,7 +19,7 @@ $navbar-offset: 80px;
   }
 
   .bookItem {
-    background-color: pink;
+    background-color: #d5c3b1;
     height: 200px;
     width: 150px;
     padding: 1rem;
@@ -64,7 +57,7 @@ $navbar-offset: 80px;
   }
 
   .bookItem {
-    background-color: pink;
+    background-color: #d5c3b1;
     height: 200px;
     width: 150px;
     padding: 1rem;

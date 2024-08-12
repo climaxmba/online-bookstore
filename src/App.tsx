@@ -18,9 +18,9 @@ import { store } from "./_lib/redux/store";
 const theme = createTheme({
   palette: {
     primary: {
-      light: "#936900",
-      main: "#b17e00",
-      dark: "#ffd66d",
+      light: "#914800",
+      main: "#c16100",
+      dark: "#ff9b36",
     },
     secondary: {
       light: "#78ffde",
