@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import Layout from "../../components/layout/Layout";
 import SearchBox from "../../components/searchBox/SearchBox";
 import {
-  CasesTwoTone,
-  HistoryEduTwoTone,
-  LandscapeTwoTone,
-  MenuBookTwoTone,
+  CasesOutlined,
+  HistoryEduOutlined,
+  LandscapeOutlined,
+  MenuBookOutlined,
 } from "@mui/icons-material";
-import { carouselResponsive } from "../../_lib/constants";
+import { carouselResponsive, paths } from "../../_lib/constants";
 
 import "react-multi-carousel/lib/styles.css";
 import styles from "./home.module.scss";
@@ -31,7 +32,8 @@ function HeroSection() {
 
       <Carousel
         autoPlay
-        infinite
+        rewind
+        rewindWithAnimation
         autoPlaySpeed={6000}
         responsive={carouselResponsive}
       >
@@ -49,25 +51,26 @@ function HeroSection() {
 
 function CategorySection() {
   return (
-    <div className={styles.categorySection}>
+    <div id="categories" className={styles.categorySection}>
       <h1>Browse by Category</h1>
+
       <div className={styles.categories}>
-        <div>
-          <MenuBookTwoTone sx={{ fontSize: 120 }} />
+        <Link to={`${paths.categories}/fiction`}>
+          <MenuBookOutlined sx={{ fontSize: 80 }} />
           Fiction
-        </div>
-        <div>
-          <LandscapeTwoTone sx={{ fontSize: 120 }} />
+        </Link>
+        <Link to={`${paths.categories}/adventure`}>
+          <LandscapeOutlined sx={{ fontSize: 80 }} />
           Adventure
-        </div>
-        <div>
-          <CasesTwoTone sx={{ fontSize: 120 }} />
+        </Link>
+        <Link to={`${paths.categories}/mystery`}>
+          <CasesOutlined sx={{ fontSize: 80 }} />
           Mystery
-        </div>
-        <div>
-          <HistoryEduTwoTone sx={{ fontSize: 120 }} />
+        </Link>
+        <Link to={`${paths.categories}/history`}>
+          <HistoryEduOutlined sx={{ fontSize: 80 }} />
           History
-        </div>
+        </Link>
       </div>
     </div>
   );
@@ -80,7 +83,8 @@ function TrendingBooks() {
 
       <Carousel
         autoPlay
-        infinite
+        rewind
+        rewindWithAnimation
         autoPlaySpeed={6000}
         responsive={carouselResponsive}
       >

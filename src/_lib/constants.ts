@@ -2,6 +2,8 @@ export const paths = {
   root: "/",
   deals: "/deals",
   books: "/books",
+  categories: "/categories",
+  category: "/categories/:category",
   details: "/books/:packageId",
   wishlist: "/wishlist",
   search: "/search",

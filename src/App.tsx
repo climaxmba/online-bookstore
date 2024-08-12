@@ -14,20 +14,30 @@ import Checkout from "./pages/checkout/Checkout";
 
 import { paths } from "./_lib/constants";
 import { store } from "./_lib/redux/store";
+import Category from "./pages/category/Category";
 
 const theme = createTheme({
   palette: {
     primary: {
-      light: "#914800",
-      main: "#c16100",
-      dark: "#ff9b36",
+      light: "#815e00",
+      main: "#a17600",
+      dark: "#cf9800",
     },
     secondary: {
       light: "#78ffde",
       main: "#00ffc1",
       dark: "#008d6b",
-    }
-  }
+    },
+  },
+  components: {
+    MuiButton: {
+      defaultProps: {
+        sx: {
+          borderRadius: 0,
+        },
+      },
+    },
+  },
 });
 
 export default function App() {
@@ -52,6 +62,10 @@ export default function App() {
       ],
     },
     {
+      path: paths.category,
+      element: <Category />,
+    },
+    {
       path: paths.wishlist,
       element: <Wishlist />,
     },
@@ -71,10 +85,9 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <RouterProvider router={router} />
-        </Provider>
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </ThemeProvider>
   );
 }
-

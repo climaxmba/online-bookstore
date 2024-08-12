@@ -1,9 +1,10 @@
-$accentcolor: mediumaquamarine;
+@import "../../_lib/globals.scss";
 $shadow: 0 1px 2px 3px #00000030;
 $menu-width: 32px;
 
 .container {
   color: black;
+  background-color: white;
   padding: 2px;
   display: flex;
   align-items: center;
@@ -12,7 +13,7 @@ $menu-width: 32px;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 2000; 
   box-shadow: $shadow;
 
   ul {
@@ -32,7 +33,7 @@ $menu-width: 32px;
 
     .active {
       padding-bottom: 8px;
-      border-bottom: 5px solid $accentcolor;
+      border-bottom: 5px solid $primary-dark;
     }
   }
 }
