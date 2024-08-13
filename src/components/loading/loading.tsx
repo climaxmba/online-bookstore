@@ -1,6 +1,9 @@
 import { Button } from "@mui/material";
+import {
+  CrisisAlertOutlined,
+  HourglassBottomOutlined,
+} from "@mui/icons-material";
 import styles from "./loading.module.scss";
-import { CrisisAlertOutlined } from "@mui/icons-material";
 
 export default function Loading() {
   return (
@@ -20,15 +23,24 @@ export function LoadingError({ message = "An Error Occured!" }) {
     <div className={styles.errorContainer}>
       <CrisisAlertOutlined />
       <p className={styles.errorMessage}>{message}</p>
-      <Button onClick={() => location.reload()}
-        sx={{
-          color: "blueviolet",
-          ":hover": { bgcolor: "#8a2be21f" },
-          ":focus": { outline: "none" },
-        }}
-      >
-        Refresh
-      </Button>
+      <Button onClick={() => location.reload()}>Refresh</Button>
+    </div>
+  );
+}
+
+export function Spinner() {
+  return (
+    <div className={styles.spinner}>
+      <HourglassBottomOutlined color="primary" />
+    </div>
+  );
+}
+
+export function SpinnerError() {
+  return (
+    <div>
+      Error loading content!{" "}
+      <Button onClick={() => location.reload()}>Reload</Button>
     </div>
   );
 }

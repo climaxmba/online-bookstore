@@ -72,6 +72,15 @@ $ring-color: #20202080;
   }
 }
 
+.spinner {
+  display: flex;
+  justify-content: center;
+  
+  & > * {
+    animation: spin 0.5s ease-in-out infinite;
+  }
+}
+
 @keyframes scale {
   from {
     transform: scale(1);
@@ -97,5 +106,17 @@ $ring-color: #20202080;
 
   to {
     opacity: 1;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+    transform-origin: center;
+  }
+
+  to {
+    transform: rotate(360deg);
+    transform-origin: center;
   }
 }
