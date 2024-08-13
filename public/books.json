@@ -1,1 +1,94 @@
-[]
+[
+  {
+    "id": "0",
+    "title": "The Cell",
+    "rating": 4.8,
+    "reviews": [
+      {
+        "author": "John Doe",
+        "review": "Nice book!",
+        "rating": 4
+      },
+      {
+        "author": "Sofia Stanford",
+        "review": "It's engaging.",
+        "rating": 5
+      }
+    ],
+    "author": "Christopher Smith",
+    "price": 110,
+    "category": "Fiction",
+    "isTrending": false,
+    "image": null,
+    "discount": 0
+  },
+  {
+    "id": "1",
+    "title": "Extra-Maniac",
+    "rating": 4.5,
+    "reviews": [
+      {
+        "author": "Kyle Robinson",
+        "review": "I had fun.",
+        "rating": 4.6
+      },
+      {
+        "author": "Sofia Stanford",
+        "review": "Cool!",
+        "rating": 5
+      }
+    ],
+    "author": "Sal Lucas",
+    "price": 120,
+    "category": "Mystery",
+    "isTrending": true,
+    "image": null,
+    "discount": 0
+  },
+  {
+    "id": "2",
+    "title": "Oblivion",
+    "rating": 3.8,
+    "reviews": [
+      {
+        "author": "Tom Xavier",
+        "review": "The suspense is a bit anoying, but it's nice.",
+        "rating": 3.8
+      }
+    ],
+    "author": "Thomas Rivera",
+    "price": 85,
+    "category": "Mystery",
+    "isTrending": false,
+    "image": null,
+    "discount": 0
+  },
+  {
+    "id": "3",
+    "title": "The Underworlds",
+    "rating": 5,
+    "reviews": [
+      {
+        "author": "Sal Lucas",
+        "review": "This book is a must have!",
+        "rating": 5
+      },
+      {
+        "author": "Sofia Stanford",
+        "review": "I cant't get enough of this",
+        "rating": 5
+      },
+      {
+        "author": "Sal Lucas",
+        "review": "❤🤩🤗",
+        "rating": 5
+      }
+    ],
+    "author": "Thomas Rivera",
+    "price": 280,
+    "category": "Adventure",
+    "isTrending": true,
+    "image": null,
+    "discount": 25
+  }
+]

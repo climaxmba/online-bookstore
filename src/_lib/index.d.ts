@@ -3,6 +3,7 @@ type Category = "Fiction" | "Adventure" | "Mystery" | "History"
 interface Review {
   author: string;
   message: string;
+  rating: number;
 }
 
 interface Book {
