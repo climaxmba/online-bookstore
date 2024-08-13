@@ -4,7 +4,7 @@ export const paths = {
   books: "/books",
   categories: "/categories",
   category: "/categories/:category",
-  details: "/books/:packageId",
+  details: "/books/:bookId",
   wishlist: "/wishlist",
   search: "/search",
   cart: "/cart",

@@ -1,9 +1,23 @@
 const booksAPI = (() => {
+  const cache: { [key: string]: unknown } = {};
+
+  async function _resource(URL: string) {
+    if (cache[URL]) return Promise.resolve(cache[URL]);
+
+    try {
+      const response = await fetch(URL);
+      const result = await response.json();
+      cache[URL] = result;
+
+      return result;
+    } catch (error) {
+      throw new Error(error as string);
+    }
+  }
+
   async function getBooks(): Promise<Book[] | []> {
     try {
-      const response = await fetch("/books.json");
-      const books: Book[] | [] = await response.json();
-
+      const books = (await _resource("/books.json")) as Book[] | [];
       return books;
     } catch (error) {
       console.log(error);
@@ -11,7 +25,26 @@ const booksAPI = (() => {
     return [];
   }
 
-  return { getBooks };
+  async function getBookById(id: string): Promise<Book | void> {
+    try {
+      const books = (await _resource("/books.json")) as Book[] | [];
+      return books[parseInt(id)];
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function getFeaturedBooks(): Promise<Book[] | []> {
+    try {
+      const books = (await _resource("/featuredBooks.json")) as Book[] | [];
+      return books;
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  }
+
+  return { getBooks, getBookById, getFeaturedBooks };
 })();
 
 export default booksAPI;
