@@ -10,7 +10,7 @@ interface Book {
   id: string;
   title: string;
   rating: number;
-  reviews: Review[];
+  reviews: Review[] | [];
   author: string;
   price: number;
   category: Category;

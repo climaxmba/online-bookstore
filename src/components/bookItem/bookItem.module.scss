@@ -1,0 +1,121 @@
+$theme-black: #303030;
+$theme-green: seagreen;
+
+@mixin container {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+}
+
+.containerDetailed {
+  @include container();
+
+  .imgContainer {
+    flex: 0 0 180px;
+
+    img {
+      height: 180px;
+    }
+  }
+
+  .bookName {
+    font-weight: 500;
+  }
+
+  & > div:not(.imgContainer) {
+    padding: 0.5rem 0.3rem;
+  }
+}
+
+.containerPortrait {
+  @include container();
+  position: relative;
+  color: inherit;
+  box-shadow: 0 1px 5px 2px #00000020;
+
+  .imgContainer {
+    height: 120px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  & > div:not(.imgContainer) {
+    padding: 0.5rem 0.3rem;
+    flex: 1;
+  }
+}
+
+$spacing: 8px;
+.containerHorizontal {
+  @include container();
+  flex-direction: row;
+  gap: $spacing;
+  max-width: 520px;
+
+  & > *:last-child {
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: $spacing 0;
+    padding-right: $spacing;
+  }
+
+  .imgContainer {
+    flex: 0 0 calc(($spacing * 2) + 100px);
+
+    img {
+      width: 100%;
+      object-fit: contain;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+  .bookName {
+    font-weight: 500;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+  }
+}
+
+.isSelected {
+  background-color: #efefef;
+  border: 1px solid $theme-black;
+  box-shadow: none;
+}
+
+.wishlistContainer {
+  position: absolute !important;
+  top: 6px;
+  right: 6px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  background-color: white;
+}
+
+.bookTitle {
+  font-size: medium;
+  overflow-x: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.price {
+  font-size: large;
+  font-weight: 500;
+  color: $theme-green;
+}

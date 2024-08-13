@@ -1,0 +1,27 @@
+.books,
+.collapsableBooks {
+  flex: 1 1 auto;
+}
+
+.list {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  grid-auto-rows: max-content;
+}
+
+.searchAndFilter {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  & > *:first-child {
+    flex: 1;
+  }
+}
+
+@container package-sectn (width < 800px) {
+  .collapsableBooks {
+    display: none;
+  }
+}

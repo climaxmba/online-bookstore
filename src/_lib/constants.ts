@@ -11,6 +11,8 @@ export const paths = {
   checkout: "/checkout",
 };
 
+export const currency = "$";
+
 export const carouselResponsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },

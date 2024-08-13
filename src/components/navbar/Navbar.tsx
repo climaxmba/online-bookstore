@@ -31,12 +31,12 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li>
-            <a className={styles.link} href="#categories">
+            <a className={styles.link} href="/#categories">
               Categories
             </a>
           </li>
           <li>
-            <a className={styles.link} href="#trending">
+            <a className={styles.link} href="/#trending">
               Trending
             </a>
           </li>
