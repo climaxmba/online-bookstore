@@ -1,17 +1,17 @@
 import type React from "react";
 import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { currency, paths } from "../../_lib/constants";
-import { addToWishlist, removeFromWishlist } from "../../_lib/redux/store";
+import {
+  addToWishlist,
+  removeFromWishlist,
+  RootState,
+} from "../../_lib/redux/store";
 
 import styles from "./bookItem.module.scss";
 import { IconButton, Rating } from "@mui/material";
 import { Star, StarOutline } from "@mui/icons-material";
-
-interface BookProps extends Book {
-  isInWishlist?: boolean;
-}
 
 export default function BookItem({
   id,
@@ -24,9 +24,10 @@ export default function BookItem({
   category,
   discount,
   isTrending = false,
-  isInWishlist = false,
-}: BookProps) {
+}: Book) {
   const dispatch = useDispatch();
+  const wishlist = useSelector((state: RootState) => state.wishlist.value);
+  const isInWishlist = !wishlist.every((book) => book.id !== id);
 
   const handleWishlist = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -35,7 +36,8 @@ export default function BookItem({
     e.stopPropagation();
     dispatch(
       isInWishlist
-        ? addToWishlist({
+        ? removeFromWishlist(id)
+        : addToWishlist({
             id,
             title,
             price,
@@ -47,7 +49,6 @@ export default function BookItem({
             discount,
             isTrending,
           })
-        : removeFromWishlist(id)
     );
   };
 
@@ -73,7 +74,9 @@ export default function BookItem({
         <div className={styles.bookTitle} title={title}>
           {title}
         </div>
-        <div className={styles.price}>{`${currency}${price}`}</div>
+        <div
+          className={styles.price}
+        >{`${currency}${price.toLocaleString()}`}</div>
         <Rating value={rating} precision={0.1} size="small" readOnly />
       </div>
     </NavLink>
