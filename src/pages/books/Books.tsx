@@ -8,6 +8,7 @@ import styles from "./books.module.scss";
 
 export default function Books() {
   const { bookId } = useParams();
+  
   return (
     <Layout>
       <section className={styles.container}>

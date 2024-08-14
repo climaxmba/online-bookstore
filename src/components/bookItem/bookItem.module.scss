@@ -1,9 +1,11 @@
-$theme-black: #303030;
-$theme-green: seagreen;
+@import "../../_lib/globals.scss";
+
+$theme-brown: #f6ecd2;
+$theme-green: green;
 
 @mixin container {
   display: flex;
-  background-color: white;
+  background-color: $theme-brown;
   flex-direction: column;
 }
 
@@ -30,7 +32,7 @@ $theme-green: seagreen;
 .containerPortrait {
   @include container();
   position: relative;
-  color: inherit;
+  color: #202020;
   box-shadow: 0 1px 5px 2px #00000020;
 
   .imgContainer {
@@ -85,7 +87,7 @@ $spacing: 8px;
 
 .isSelected {
   background-color: #efefef;
-  border: 1px solid $theme-black;
+  border: 1px solid black;
   box-shadow: none;
 }
 

@@ -4,7 +4,7 @@ $menu-width: 32px;
 
 .container {
   color: black;
-  background-color: white;
+  background-color: #e7d9b5;
   padding: 2px;
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ $menu-width: 32px;
 
     .active {
       padding-bottom: 8px;
-      border-bottom: 5px solid $primary-dark;
+      border-bottom: 5px solid $primary-main;
     }
   }
 }

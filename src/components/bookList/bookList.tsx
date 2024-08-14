@@ -1,10 +1,13 @@
 import type React from "react";
 import { type SetStateAction, useEffect, useState } from "react";
-import { TextField } from "@mui/material";
+import { useSearchParams } from "react-router-dom";
+
+import { Button, TextField } from "@mui/material";
 import BookItem from "../bookItem/BookItem.tsx";
 import Loading, { LoadingError } from "../loading/loading";
 
 import styles from "./bookList.module.scss";
+import { paths } from "../../_lib/constants.ts";
 
 /** Requires container style: `{container: book-sectn / inline-size;}` */
 export default function BookList({
@@ -15,20 +18,29 @@ export default function BookList({
   hasBookId: boolean;
 }) {
   const [loading, setLoading] = useState(true);
-  const [books, setPackages] = useState<Book[] | []>([]);
+  const [books, setBooks] = useState<Book[] | []>([]);
   const [error, setError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [params, setParams] = useSearchParams();
+  const {q} = Object.fromEntries(params);
+  const isInBooksPage = location.pathname.includes(paths.books);
 
   useEffect(() => {
     (async () => {
       try {
-        setPackages((await getBooks()) as SetStateAction<Book[] | []>);
+        setBooks((await getBooks()) as SetStateAction<Book[] | []>);
       } catch {
         setError(true);
       }
       setLoading(false);
     })();
   }, [getBooks]);
+
+  useEffect(() => {
+    if (isInBooksPage && q) setSearchQuery(q)
+
+    setParams({});
+  }, [isInBooksPage, q, setParams]);
 
   const filteredBooks = searchQuery
     ? books.filter((book) =>
@@ -88,15 +100,9 @@ function SearchAndFilter({
         onChange={(e) => setQuery(e.target.value)}
         value={query}
       />
-      {/* <Button
-        sx={{
-          textTransform: "uppercase",
-          color: "darkorange",
-          ":hover": { bgcolor: "#ffeee8" },
-        }}
-      >
+      <Button>
         Filters
-      </Button> */}
+      </Button>
     </div>
   );
 }
