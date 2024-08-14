@@ -1,0 +1,13 @@
+.cartQuantityContainer {
+  display: flex;
+  align-items: center;
+
+  .quantityText {
+    flex: 1;
+    padding: 0 1ch;
+    text-align: center;
+    font-weight: 500;
+    font-size: large;
+    cursor: default;
+  }
+}

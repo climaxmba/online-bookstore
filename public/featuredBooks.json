@@ -2,16 +2,17 @@
   {
     "id": "0",
     "title": "The Cell",
+    "description": "A book of fiction by Christopher Smith",
     "rating": 4.8,
     "reviews": [
       {
         "author": "John Doe",
-        "review": "Nice book!",
+        "message": "Nice book!",
         "rating": 4
       },
       {
         "author": "Sofia Stanford",
-        "review": "It's engaging.",
+        "message": "It's engaging.",
         "rating": 5
       }
     ],
@@ -25,16 +26,17 @@
   {
     "id": "1",
     "title": "Extra-Maniac",
+    "description": "A book of mystery Sal Lucas",
     "rating": 4.5,
     "reviews": [
       {
         "author": "Kyle Robinson",
-        "review": "I had fun.",
+        "message": "I had fun.",
         "rating": 4.6
       },
       {
         "author": "Sofia Stanford",
-        "review": "Cool!",
+        "message": "Cool!",
         "rating": 5
       }
     ],
@@ -48,11 +50,12 @@
   {
     "id": "2",
     "title": "Oblivion",
+    "description": "A book of mystery Thomas Rivera",
     "rating": 3.8,
     "reviews": [
       {
         "author": "Tom Xavier",
-        "review": "The suspense is a bit anoying, but it's nice.",
+        "message": "The suspense is a bit anoying, but it's nice.",
         "rating": 3.8
       }
     ],
@@ -66,21 +69,22 @@
   {
     "id": "3",
     "title": "The Underworlds",
+    "description": "A book of adventure Thomas Rivera",
     "rating": 5,
     "reviews": [
       {
         "author": "Sal Lucas",
-        "review": "This book is a must have!",
+        "message": "This book is a must have!",
         "rating": 5
       },
       {
         "author": "Sofia Stanford",
-        "review": "I cant't get enough of this",
+        "message": "I cant't get enough of this",
         "rating": 5
       },
       {
         "author": "Sal Lucas",
-        "review": "❤🤩🤗",
+        "message": "❤🤩🤗",
         "rating": 5
       }
     ],

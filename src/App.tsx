@@ -31,10 +31,10 @@ const theme = createTheme({
   },
   components: {
     MuiButton: {
-      defaultProps: {
-        sx: {
+      styleOverrides: {
+        "root": {
           borderRadius: 0,
-        },
+        }
       },
     },
   },

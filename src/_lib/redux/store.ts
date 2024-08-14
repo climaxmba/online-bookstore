@@ -14,6 +14,7 @@ export const {
 export const store = configureStore({
   reducer: {
     wishlist: wishlistSlice.reducer,
+    cart: cartSlice.reducer,
   },
 });
 

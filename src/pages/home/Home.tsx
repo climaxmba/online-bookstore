@@ -82,6 +82,7 @@ function HeroSection() {
               key={book.id}
               id={book.id}
               title={book.title}
+              description={book.description}
               price={book.price}
               image={book.image}
               rating={book.rating}
@@ -167,6 +168,7 @@ function TrendingBooks() {
               key={book.id}
               id={book.id}
               title={book.title}
+              description={book.description}
               price={book.price}
               image={book.image}
               rating={book.rating}

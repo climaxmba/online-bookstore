@@ -16,6 +16,7 @@ import { Star, StarOutline } from "@mui/icons-material";
 export default function BookItem({
   id,
   title,
+  description,
   price,
   image,
   rating,
@@ -40,6 +41,7 @@ export default function BookItem({
         : addToWishlist({
             id,
             title,
+            description,
             price,
             image,
             rating,

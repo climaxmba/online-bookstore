@@ -9,6 +9,7 @@ interface Review {
 interface Book {
   id: string;
   title: string;
+  description: string;
   rating: number;
   reviews: Review[] | [];
   author: string;

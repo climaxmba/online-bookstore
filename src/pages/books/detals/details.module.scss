@@ -1,0 +1,75 @@
+$theme-green: seagreen;
+
+.container {
+  display: grid;
+  gap: 1rem;
+}
+
+.main {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+
+  .imgContainer {
+    flex: 0 0 180px;
+
+    img {
+      height: 180px;
+    }
+  }
+
+  .bookName {
+    font-size: large;
+    font-weight: 600;
+  }
+
+  & > div:not(.imgContainer) {
+    padding: 1rem;
+  }
+
+  .price {
+    font-size: x-large;
+    font-weight: 600;
+    color: $theme-green;
+  }
+
+  .ctaContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 400px;
+
+    & > *:first-child {
+      flex: 1;
+    }
+
+    & > *:last-child {
+      width: min-content;
+    }
+  }
+}
+
+:where(.ratingContainer, .description, .reviewsContainer) {
+  background-color: white;
+  padding: 1rem;
+  display: grid;
+  gap: 0.5rem;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.reviews {
+  display: grid;
+  gap: 6px;
+
+  & > * {
+    padding: 8px;
+    background-color: #f6f6f6;
+
+    :where(h3, p) {
+      margin: 0;
+    }
+  }
+}
