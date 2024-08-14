@@ -128,23 +128,59 @@ function CategorySection() {
 }
 
 function TrendingBooks() {
+  const [loading, setLoading] = useState(true);
+  const [books, setBooks] = useState<Book[] | []>([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setBooks(
+          (await booksAPI.getTrendingBooks()) as SetStateAction<Book[] | []>
+        );
+      } catch {
+        setError(true);
+      }
+      setLoading(false);
+    })();
+  }, []);
+
   return (
     <div className={styles.trendingBooks}>
       <h1>Trending Books</h1>
 
-      <Carousel
-        autoPlay
-        rewind
-        rewindWithAnimation
-        autoPlaySpeed={6000}
-        responsive={carouselResponsive}
-      >
-        <div className={styles.bookItem}></div>
-        <div className={styles.bookItem}></div>
-        <div className={styles.bookItem}></div>
-        <div className={styles.bookItem}></div>
-        <div className={styles.bookItem}></div>
-      </Carousel>
+      {loading ? (
+        <Spinner />
+      ) : error ? (
+        <SpinnerError />
+      ) : books.length ? (
+        <Carousel
+          autoPlay
+          rewind
+          rewindWithAnimation
+          autoPlaySpeed={6000}
+          responsive={carouselResponsive}
+          className={styles.carousel}
+        >
+          {books.map((book) => (
+            <BookItem
+              key={book.id}
+              id={book.id}
+              title={book.title}
+              price={book.price}
+              image={book.image}
+              rating={book.rating}
+              reviews={book.reviews}
+              author={book.author}
+              category={book.category}
+              isTrending={book.isTrending}
+              discount={book.discount}
+            />
+          ))}
+        </Carousel>
+      ) : (
+        <p>No results!</p>
+      )}
     </div>
   );
 }
