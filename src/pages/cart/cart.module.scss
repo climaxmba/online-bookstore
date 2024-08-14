@@ -1,0 +1,56 @@
+@import "../../_lib/globals.scss";
+
+$theme-black: #303030;
+$theme-green: seagreen;
+
+.container {
+  padding: 1rem 2rem;
+  padding-top: $navbar-offset;
+  min-height: 100vh;
+  margin-bottom: 150px;
+}
+
+.cartList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+  max-width: 400px;
+}
+
+
+.containerDetailed {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+
+  .imgContainer {
+    flex: 0 0 180px;
+
+    img {
+      height: 180px;
+    }
+  }
+
+  .title {
+    font-weight: 600;
+  }
+
+  & > div:not(.imgContainer) {
+    padding: 0.5rem 0.3rem;
+  }
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: stretch;
+  background-color: white;
+}
+
+.price {
+  font-size: x-large;
+  font-weight: 600;
+  color: $theme-green;
+}

@@ -60,6 +60,16 @@ export default function Navbar() {
               Wishlist
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.link
+              }
+              to={paths.cart}
+            >
+              Cart
+            </NavLink>
+          </li>
         </ul>
       </nav>
     </>
