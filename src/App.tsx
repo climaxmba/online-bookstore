@@ -62,6 +62,10 @@ export default function App() {
       ],
     },
     {
+      path: paths.categories,
+      element: <Category />,
+    },
+    {
       path: paths.category,
       element: <Category />,
     },

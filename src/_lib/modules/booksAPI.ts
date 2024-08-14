@@ -44,6 +44,16 @@ const booksAPI = (() => {
     }
   }
 
+  async function getBooksByCategory(category: string): Promise<Book[] | []> {
+    try {
+      const books = await getBooks();
+      return books.filter((book) => book.category === category);
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  }
+
   async function getFeaturedBooks(): Promise<Book[] | []> {
     try {
       const books = (await _resource("/featuredBooks.json")) as Book[] | [];
@@ -54,7 +64,13 @@ const booksAPI = (() => {
     return [];
   }
 
-  return { getBooks, getBookById, getTrendingBooks, getFeaturedBooks };
+  return {
+    getBooks,
+    getBookById,
+    getBooksByCategory,
+    getTrendingBooks,
+    getFeaturedBooks,
+  };
 })();
 
 export default booksAPI;
