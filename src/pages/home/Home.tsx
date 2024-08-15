@@ -148,7 +148,7 @@ function DailyDeals() {
   }, []);
 
   return (
-    <div id="#deals" className={styles.dailyDeals}>
+    <div id="deals" className={styles.dailyDeals}>
       <h1>The Deals</h1>
 
       {loading ? (
@@ -207,7 +207,7 @@ function TrendingBooks() {
   }, []);
 
   return (
-    <div className={styles.trendingBooks}>
+    <div id="trending" className={styles.trendingBooks}>
       <h1>Trending Books</h1>
 
       {loading ? (

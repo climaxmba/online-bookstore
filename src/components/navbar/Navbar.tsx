@@ -62,25 +62,17 @@ function Logo() {
 }
 
 function IconLinks() {
-  const isInHomePage = location.pathname === paths.root;
-
   return (
     <div className={styles.iconLinks}>
-      {isInHomePage ? (
-        <a className={styles.link} href="/#trending">
-          <LineAxisOutlined />
-          Trending
-        </a>
-      ) : (
-        <></>
-      )}
-      {isInHomePage ? (
-        <a href={"/#deals"}>
-          <CardGiftcardOutlined className={styles.dealsIcon} /> Deals
-        </a>
-      ) : (
-        <></>
-      )}
+      <a className={styles.link} href="/#trending">
+        <LineAxisOutlined />
+        Trending
+      </a>
+
+      <a href={"/#deals"}>
+        <CardGiftcardOutlined className={styles.dealsIcon} /> Deals
+      </a>
+
       <NavLink
         className={({ isActive }) => (isActive ? styles.active : styles.link)}
         to={paths.wishlist}
@@ -88,6 +80,7 @@ function IconLinks() {
         <StarOutline />
         Wishlist
       </NavLink>
+
       <NavLink
         className={({ isActive }) => (isActive ? styles.active : styles.link)}
         to={paths.cart}

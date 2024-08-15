@@ -14,6 +14,7 @@ import Checkout from "./pages/checkout/Checkout";
 import { paths } from "./_lib/constants";
 import { store } from "./_lib/redux/store";
 import Category from "./pages/category/Category";
+import HashLinkObserver from "react-hash-link";
 
 const theme = createTheme({
   palette: {
@@ -86,6 +87,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <Provider store={store}>
         <RouterProvider router={router} />
+        <HashLinkObserver smoothScroll />
       </Provider>
     </ThemeProvider>
   );
