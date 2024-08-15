@@ -1,0 +1,25 @@
+@import "../../_lib/globals.scss";
+
+.container {
+  text-wrap: nowrap;
+}
+
+.headerRow {
+  background-color: $primary-main;
+}
+
+.header {
+  font-weight: 600 !important;
+  color: white !important;
+}
+
+.title {
+  max-width: 5ch;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+.totalCell {
+  font-weight: 600 !important;
+  font-size: large !important;
+}
