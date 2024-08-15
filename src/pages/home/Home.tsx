@@ -148,7 +148,7 @@ function DailyDeals() {
   }, []);
 
   return (
-    <div className={styles.dailyDeals}>
+    <div id="#deals" className={styles.dailyDeals}>
       <h1>The Deals</h1>
 
       {loading ? (

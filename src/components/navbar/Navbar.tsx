@@ -1,9 +1,10 @@
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { paths } from "../../_lib/constants";
 
+import logoSrc from "../../assets/logo.svg";
 import styles from "./navbar.module.scss";
-import { useState } from "react";
 
 export default function Navbar() {
   return (
@@ -42,14 +43,7 @@ export default function Navbar() {
             </a>
           </li>
           <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.link
-              }
-              to={paths.deals}
-            >
-              Deals
-            </NavLink>
+            <a href={"/#deals"}>Deals</a>
           </li>
           <li>
             <NavLink
@@ -80,7 +74,11 @@ export default function Navbar() {
 }
 
 function Logo() {
-  return <Link to={paths.root}>Online Bookstore</Link>;
+  return (
+    <Link to={paths.root} className={styles.logo}>
+      <img src={logoSrc} height={25} alt="Logo" /> Online Bookstore
+    </Link>
+  );
 }
 
 function MobileNav() {
@@ -131,14 +129,7 @@ function MobileNav() {
           </a>
         </li>
         <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.link
-            }
-            to={paths.deals}
-          >
-            Deals
-          </NavLink>
+          <a href={"/#deals"}>Deals</a>
         </li>
         <li>
           <NavLink

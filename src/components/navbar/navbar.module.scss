@@ -2,6 +2,15 @@
 $shadow: 0 1px 2px 3px #00000030;
 $menu-width: 28px;
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #202020;
+  font-size: x-large;
+  text-wrap: nowrap;
+}
+
 .container {
   color: black;
   background-color: white;
