@@ -1,6 +1,5 @@
 export const paths = {
   root: "/",
-  deals: "/deals",
   books: "/books",
   categories: "/categories",
   category: "/categories/:category",

@@ -4,7 +4,6 @@ import { createTheme, ThemeProvider } from "@mui/material";
 
 import Home from "./pages/home/Home";
 import Error from "./pages/404/Error";
-import Deals from "./pages/deals/Deals";
 import Books from "./pages/books/Books";
 import Details from "./pages/books/detals/Details";
 import Wishlist from "./pages/wishlist/Wishlist";
@@ -46,10 +45,6 @@ export default function App() {
       path: paths.root,
       element: <Home />,
       errorElement: <Error />,
-    },
-    {
-      path: paths.deals,
-      element: <Deals />,
     },
     {
       path: paths.books,

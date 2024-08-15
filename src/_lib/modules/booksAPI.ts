@@ -25,6 +25,16 @@ const booksAPI = (() => {
     return [];
   }
 
+  async function getDailyDeals(): Promise<Book[] | []> {
+    try {
+      const books = await getBooks();
+      return books.filter((book) => book.discount);
+    } catch (error) {
+      console.log(error);
+    }
+    return [];
+  }
+
   async function getTrendingBooks(): Promise<Book[] | []> {
     try {
       const books = await getBooks();
@@ -68,6 +78,7 @@ const booksAPI = (() => {
     getBooks,
     getBookById,
     getBooksByCategory,
+    getDailyDeals,
     getTrendingBooks,
     getFeaturedBooks,
   };

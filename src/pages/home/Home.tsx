@@ -24,6 +24,7 @@ export default function Home() {
       <div className={styles.container}>
         <HeroSection />
         <CategorySection />
+        <DailyDeals />
         <TrendingBooks />
       </div>
     </Layout>
@@ -124,6 +125,65 @@ function CategorySection() {
           History
         </Link>
       </div>
+    </div>
+  );
+}
+
+function DailyDeals() {
+  const [loading, setLoading] = useState(true);
+  const [books, setBooks] = useState<Book[] | []>([]);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        setBooks(
+          (await booksAPI.getDailyDeals()) as SetStateAction<Book[] | []>
+        );
+      } catch {
+        setError(true);
+      }
+      setLoading(false);
+    })();
+  }, []);
+
+  return (
+    <div className={styles.dailyDeals}>
+      <h1>The Deals</h1>
+
+      {loading ? (
+        <Spinner />
+      ) : error ? (
+        <SpinnerError />
+      ) : books.length ? (
+        <Carousel
+          autoPlay
+          rewind
+          rewindWithAnimation
+          autoPlaySpeed={6000}
+          responsive={carouselResponsive}
+          className={styles.carousel}
+        >
+          {books.map((book) => (
+            <BookItem
+              key={book.id}
+              id={book.id}
+              title={book.title}
+              description={book.description}
+              price={book.price}
+              image={book.image}
+              rating={book.rating}
+              reviews={book.reviews}
+              author={book.author}
+              category={book.category}
+              isTrending={book.isTrending}
+              discount={book.discount}
+            />
+          ))}
+        </Carousel>
+      ) : (
+        <p>No results!</p>
+      )}
     </div>
   );
 }
