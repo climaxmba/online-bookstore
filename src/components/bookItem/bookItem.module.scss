@@ -9,31 +9,21 @@ $theme-green: green;
   flex-direction: column;
 }
 
-.containerDetailed {
-  @include container();
-
-  .imgContainer {
-    flex: 0 0 180px;
-
-    img {
-      height: 180px;
-    }
-  }
-
-  .bookName {
-    font-weight: 500;
-  }
-
-  & > div:not(.imgContainer) {
-    padding: 0.5rem 0.3rem;
-  }
-}
-
 .containerPortrait {
   @include container();
   position: relative;
   color: #202020;
   box-shadow: 0 1px 5px 2px #00000020;
+
+  .discount {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    padding: 2px 4px;
+    font-size: 10px;
+    background: #bf0000;
+    color: white;
+  }
 
   .imgContainer {
     height: 120px;
@@ -49,39 +39,6 @@ $theme-green: green;
   & > div:not(.imgContainer) {
     padding: 0.5rem 0.3rem;
     flex: 1;
-  }
-}
-
-$spacing: 8px;
-.containerHorizontal {
-  @include container();
-  flex-direction: row;
-  gap: $spacing;
-  max-width: 520px;
-
-  & > *:last-child {
-    flex: 1;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    padding: $spacing 0;
-    padding-right: $spacing;
-  }
-
-  .imgContainer {
-    flex: 0 0 calc(($spacing * 2) + 100px);
-
-    img {
-      width: 100%;
-      object-fit: contain;
-      aspect-ratio: 1 / 1;
-    }
-  }
-
-  .bookName {
-    font-weight: 500;
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow-x: hidden;
   }
 }
 

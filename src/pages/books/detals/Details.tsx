@@ -53,9 +53,14 @@ export default function Details() {
               <div className={styles.bookName}>
                 {book?.title} <i>by {book?.author}</i>
               </div>
-              <div
-                className={styles.price}
-              >{`${currency}${book?.price.toLocaleString()}`}</div>
+              <div className={styles.price}>
+                {`${currency}${book?.price.toLocaleString()}`}
+                {book?.discount ? (
+                  <span className={styles.discount}>-{book?.discount}%</span>
+                ) : (
+                  <></>
+                )}
+              </div>
               <div className={styles.ctaContainer}>
                 <AddToCart {...(book as Book)} />
                 <AddToWishList {...(book as Book)} />

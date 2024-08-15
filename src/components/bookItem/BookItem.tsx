@@ -68,6 +68,8 @@ export default function BookItem({
         )}
       </IconButton>
 
+      {discount ? <span className={styles.discount}>-{discount}%</span> : <></>}
+
       <div className={styles.imgContainer}>
         <img src={image} alt="" />
       </div>

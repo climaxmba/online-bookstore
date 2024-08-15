@@ -53,4 +53,14 @@ $theme-green: seagreen;
   font-size: x-large;
   font-weight: 600;
   color: $theme-green;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .discount {
+    padding: 2px 4px;
+    font-size: 10px;
+    background: #bf0000;
+    color: white;
+  }
 }

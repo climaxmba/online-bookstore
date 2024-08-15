@@ -30,11 +30,8 @@ export default function Cart() {
         ) : (
           <>
             <p>Your Cart is empty! </p>
-            <Button
-              variant="contained"
-              onClick={() => navigate(paths.books)}
-            >
-             Find Books
+            <Button variant="contained" onClick={() => navigate(paths.books)}>
+              Find Books
             </Button>
           </>
         )}
@@ -61,7 +58,14 @@ function BookItemDetailed(book: Book) {
       </div>
       <div>
         <div className={styles.title}>{book.title}</div>
-        <div className={styles.price}>{`${currency}${book.price}`}</div>
+        <div className={styles.price}>
+          {`${currency}${book.price}`}
+          {book.discount ? (
+            <span className={styles.discount}>-{book.discount}%</span>
+          ) : (
+            <></>
+          )}
+        </div>
         <AddToCart {...book} />
       </div>
     </div>
