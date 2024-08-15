@@ -1,10 +1,10 @@
 @import "../../_lib/globals.scss";
 $shadow: 0 1px 2px 3px #00000030;
-$menu-width: 32px;
+$menu-width: 28px;
 
 .container {
   color: black;
-  background-color: #e7d9b5;
+  background-color: white;
   padding: 2px;
   display: flex;
   align-items: center;
@@ -13,7 +13,7 @@ $menu-width: 32px;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 2000; 
+  z-index: 2000;
   box-shadow: $shadow;
 
   ul {
@@ -35,5 +35,114 @@ $menu-width: 32px;
       padding-bottom: 8px;
       border-bottom: 5px solid $primary-main;
     }
+  }
+}
+
+.mobileContainer {
+  display: none;
+  padding: 4px 1rem;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background-color: white;
+  backdrop-filter: blur(10px);
+  box-shadow: $shadow;
+
+  :where(button, button:active, button:focus) {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    outline: none !important;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    position: relative;
+    cursor: pointer;
+    width: $menu-width;
+    min-height: 40px;
+
+    & > * {
+      width: $menu-width;
+      height: 3px;
+      background-color: black;
+      border-radius: 6px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &.menuOpen {
+      height: $menu-width;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      & > * {
+        position: absolute;
+      }
+
+      & > :first-child {
+        transform: rotate(45deg);
+      }
+
+      & > :nth-child(2) {
+        display: none;
+      }
+
+      & > :last-child {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .links {
+    padding: 0;
+    gap: 2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 45px;
+    left: 15%;
+    right: 1rem;
+    min-height: 80vh;
+    padding: 1rem;
+    background-color: white;
+    transform: translateX(100vw);
+    transition: transform ease-in-out 0.5s;
+
+    &.linksOpen {
+      transform: translateX(0);
+    }
+
+    a {
+      color: inherit;
+      transition: border ease 1s;
+    }
+
+    .link {
+      padding-bottom: 8px;
+    }
+
+    .active {
+      padding-bottom: 8px;
+      border-bottom: 5px solid $primary-main;
+    }
+  }
+}
+
+@media screen and (width < 760px) {
+  .container {
+    display: none;
+  }
+
+  .mobileContainer {
+    display: flex;
   }
 }
