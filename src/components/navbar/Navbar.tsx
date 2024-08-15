@@ -5,6 +5,12 @@ import { paths } from "../../_lib/constants";
 
 import logoSrc from "../../assets/logo.svg";
 import styles from "./navbar.module.scss";
+import {
+  CardGiftcardOutlined,
+  LineAxisOutlined,
+  ShoppingBagOutlined,
+  StarOutline,
+} from "@mui/icons-material";
 
 export default function Navbar() {
   return (
@@ -37,35 +43,9 @@ export default function Navbar() {
               Categories
             </a>
           </li>
-          <li>
-            <a className={styles.link} href="/#trending">
-              Trending
-            </a>
-          </li>
-          <li>
-            <a href={"/#deals"}>Deals</a>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.link
-              }
-              to={paths.wishlist}
-            >
-              Wishlist
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              className={({ isActive }) =>
-                isActive ? styles.active : styles.link
-              }
-              to={paths.cart}
-            >
-              Cart
-            </NavLink>
-          </li>
         </ul>
+
+        <IconLinks />
       </nav>
 
       <MobileNav />
@@ -78,6 +58,44 @@ function Logo() {
     <Link to={paths.root} className={styles.logo}>
       <img src={logoSrc} height={25} alt="Logo" /> Online Bookstore
     </Link>
+  );
+}
+
+function IconLinks() {
+  const isInHomePage = location.pathname === paths.root;
+
+  return (
+    <div className={styles.iconLinks}>
+      {isInHomePage ? (
+        <a className={styles.link} href="/#trending">
+          <LineAxisOutlined />
+          Trending
+        </a>
+      ) : (
+        <></>
+      )}
+      {isInHomePage ? (
+        <a href={"/#deals"}>
+          <CardGiftcardOutlined className={styles.dealsIcon} /> Deals
+        </a>
+      ) : (
+        <></>
+      )}
+      <NavLink
+        className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        to={paths.wishlist}
+      >
+        <StarOutline />
+        Wishlist
+      </NavLink>
+      <NavLink
+        className={({ isActive }) => (isActive ? styles.active : styles.link)}
+        to={paths.cart}
+      >
+        <ShoppingBagOutlined />
+        Cart
+      </NavLink>
+    </div>
   );
 }
 
@@ -124,32 +142,7 @@ function MobileNav() {
           </a>
         </li>
         <li>
-          <a className={styles.link} href="/#trending">
-            Trending
-          </a>
-        </li>
-        <li>
-          <a href={"/#deals"}>Deals</a>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.link
-            }
-            to={paths.wishlist}
-          >
-            Wishlist
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive ? styles.active : styles.link
-            }
-            to={paths.cart}
-          >
-            Cart
-          </NavLink>
+          <IconLinks />
         </li>
       </ul>
     </nav>
