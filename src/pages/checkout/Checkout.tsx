@@ -61,17 +61,17 @@ export default function Checkout() {
   }, [cart.length, navigate]);
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => {
-      if (prevActiveStep === steps.length - 1) dispatch(resetCart());
-      return prevActiveStep + 1;
-    });
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleEnd = () => navigate(paths.books);
+  const handleEnd = () => {
+    dispatch(resetCart());
+    navigate(paths.books);
+  };
   return (
     <Layout>
       <div className={styles.container}>
