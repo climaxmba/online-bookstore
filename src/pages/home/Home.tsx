@@ -53,10 +53,11 @@ function HeroSection() {
     <div className={styles.heroSection}>
       <div className={styles.pannels}>
         <div>
-          <h1>Online Bookstore</h1>
+          <h1>Escape into a World of Stories.</h1>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi
-            molestiae error enim accusantium vel similique.
+            Find your next adventure with Online Bookstore, your one-stop
+            shop for all things books. Browse thousands of titles, discover
+            hidden gems, and let your imagination soar. Start exploring today!
           </p>
         </div>
 
