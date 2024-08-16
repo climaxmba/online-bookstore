@@ -28,4 +28,7 @@ npm install && npm run dev
 ### Working with wishlist
 Each book item has a star icon, it allows you to add and remove the book from wishlist.
 
-## 
+## 🙏 Acknowledgement
+
+- Photo by [Tú Nguyễn from Pexels](https://www.pexels.com/photo/beautiful-fairy-in-white-dress-1545590/).
+- Book photos by [Pexels](https://www.pexels.com/).
