@@ -12,9 +12,15 @@ $theme-green: seagreen;
 
   .imgContainer {
     flex: 0 0 180px;
+    position: relative;
 
     img {
-      height: 180px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 

@@ -1,79 +1,12 @@
 [
   {
-    "id": "0",
-    "title": "The Cell",
-    "description": "A book of fiction by Christopher Smith",
-    "rating": 4.8,
-    "reviews": [
-      {
-        "author": "John Doe",
-        "message": "Nice book!",
-        "rating": 4
-      },
-      {
-        "author": "Sofia Stanford",
-        "message": "It's engaging.",
-        "rating": 5
-      }
-    ],
-    "author": "Christopher Smith",
-    "price": 110,
-    "category": "Fiction",
-    "isTrending": false,
-    "image": null,
-    "discount": 0
-  },
-  {
-    "id": "1",
-    "title": "Extra-Maniac",
-    "description": "A book of mystery Sal Lucas",
-    "rating": 4.5,
-    "reviews": [
-      {
-        "author": "Kyle Robinson",
-        "message": "I had fun.",
-        "rating": 4.6
-      },
-      {
-        "author": "Sofia Stanford",
-        "message": "Cool!",
-        "rating": 5
-      }
-    ],
-    "author": "Sal Lucas",
-    "price": 120,
-    "category": "Mystery",
-    "isTrending": true,
-    "image": null,
-    "discount": 0
-  },
-  {
-    "id": "2",
-    "title": "Oblivion",
-    "description": "A book of mystery Thomas Rivera",
-    "rating": 3.8,
-    "reviews": [
-      {
-        "author": "Tom Xavier",
-        "message": "The suspense is a bit anoying, but it's nice.",
-        "rating": 3.8
-      }
-    ],
-    "author": "Thomas Rivera",
-    "price": 85,
-    "category": "Mystery",
-    "isTrending": false,
-    "image": null,
-    "discount": 0
-  },
-  {
     "id": "3",
     "title": "The Underworlds",
     "description": "A book of adventure Thomas Rivera",
     "rating": 5,
     "reviews": [
       {
-        "author": "Sal Lucas",
+        "author": "Tom Xavier",
         "message": "This book is a must have!",
         "rating": 5
       },
@@ -92,7 +25,113 @@
     "price": 280,
     "category": "Adventure",
     "isTrending": true,
-    "image": null,
+    "image": "https://images.pexels.com/photos/7635576/pexels-photo-7635576.jpeg?auto=compress",
     "discount": 25
+  },
+  {
+    "id": "5",
+    "title": "Pride and Prejudice",
+    "description": "A witty social commentary by Jane Austen",
+    "rating": 4.7,
+    "reviews": [
+      {
+        "author": "Mary Jones",
+        "message": "A classic romance with strong female characters.",
+        "rating": 5
+      },
+      {
+        "author": "David Miller",
+        "message": "The writing style takes some getting used to, but worth it.",
+        "rating": 4
+      },
+      {
+        "author": "Elizabeth Garcia",
+        "message": "A timeless story that still resonates today.",
+        "rating": 5
+      }
+    ],
+    "author": "Jane Austen",
+    "price": 220,
+    "category": "Fiction",
+    "isTrending": true,
+    "image": "https://images.pexels.com/photos/11311532/pexels-photo-11311532.jpeg?auto=compress",
+    "discount": 0
+  },
+  {
+    "id": "6",
+    "title": "The Hitchhiker's Guide to the Galaxy",
+    "description": "A humorous science fiction comedy series by Douglas Adams",
+    "rating": 4.6,
+    "reviews": [
+      {
+        "author": "Michael Lee",
+        "message": "Hilarious and thought-provoking!",
+        "rating": 5
+      },
+      {
+        "author": "Sarah Williams",
+        "message": "A quirky and imaginative read.",
+        "rating": 4.5
+      },
+      {
+        "author": "Charles Johnson",
+        "message": "Not for everyone, but I loved it.",
+        "rating": 4
+      }
+    ],
+    "author": "Douglas Adams",
+    "price": 250,
+    "category": "Fiction",
+    "isTrending": false,
+    "image": "https://images.pexels.com/photos/7635576/pexels-photo-7635576.jpeg?auto=compress",
+    "discount": 15
+  },
+  {
+    "id": "12",
+    "title": "The Lord of the Rings 2",
+    "description": "An epic fantasy adventure by J.R.R. Tolkien",
+    "rating": 4.8,
+    "reviews": [
+      {
+        "author": "Mia Rodriguez",
+        "message": "A world of magic and adventure",
+        "rating": 5
+      },
+      {
+        "author": "Noah Miller",
+        "message": "A truly immersive experience",
+        "rating": 4
+      }
+    ],
+    "author": "J.R.R. Tolkien",
+    "price": 400,
+    "category": "Adventure",
+    "isTrending": false,
+    "image": "https://images.pexels.com/photos/14332431/pexels-photo-14332431.png?auto=compress",
+    "discount": 0
+  },
+  {
+    "id": "13",
+    "title": "The Great Gatsby",
+    "description": "A classic tale of the American Dream by F. Scott Fitzgerald",
+    "rating": 4.6,
+    "reviews": [
+      {
+        "author": "Riley Anderson",
+        "message": "A beautifully written story",
+        "rating": 5
+      },
+      {
+        "author": "Sophia Stanford",
+        "message": "A glimpse into the Jazz Age",
+        "rating": 4
+      }
+    ],
+    "author": "F. Scott Fitzgerald",
+    "price": 17.99,
+    "category": "Fiction",
+    "isTrending": false,
+    "image": "https://images.pexels.com/photos/7635576/pexels-photo-7635576.jpeg?auto=compress",
+    "discount": 10
   }
 ]
