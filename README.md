@@ -1,5 +1,7 @@
 # Online Bookstore
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/29e17ae0-8056-40a8-9666-dacf733a733e/deploy-status)](https://app.netlify.com/sites/climaxmba-bookstore/deploys)
+
 A user-friendly bookstore where users can browse books, add them to wish-list, and explore daily deals. It includes multiple sections to display books and manage user interactions.
 
 ## ✨ Features
