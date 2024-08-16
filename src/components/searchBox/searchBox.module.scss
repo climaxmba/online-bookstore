@@ -7,7 +7,8 @@
 
   // Search box
   & > *:first-child {
-    flex: 0 1 380px;
+    flex: 1 0 150px;
+    max-width: 400px;
   }
 
   // Search button

@@ -16,7 +16,7 @@
 
 .heroSection {
   padding-top: $navbar-offset;
-  min-height: 100lvh;
+  min-height: 70vh;
   position: relative;
   overflow: hidden;
   font-weight: 600; // Increase legibility in busy background
@@ -55,11 +55,12 @@
     justify-content: center;
 
     & > *:first-child {
-      flex: 1;
+      flex: 1 0 280px;
+      max-width: 500px;
     }
 
     & > *:last-child {
-      flex: 1.5;
+      flex: 1.5 0 280px;
     }
   }
 
