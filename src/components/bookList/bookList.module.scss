@@ -11,16 +11,6 @@
   margin: 2rem 0;
 }
 
-.searchAndFilter {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-
-  & > *:first-child {
-    flex: 1;
-  }
-}
-
 @container book-sectn (width < 800px) {
   .collapsableBooks {
     display: none;

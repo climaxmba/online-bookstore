@@ -32,9 +32,10 @@ const theme = createTheme({
   components: {
     MuiButton: {
       styleOverrides: {
-        "root": {
+        root: {
           borderRadius: 0,
-        }
+          textWrap: "nowrap",
+        },
       },
     },
   },

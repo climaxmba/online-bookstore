@@ -9,13 +9,3 @@
   grid-auto-rows: max-content;
   margin: 2rem 0;
 }
-
-.searchAndFilter {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-
-  & > *:first-child {
-    flex: 1;
-  }
-}

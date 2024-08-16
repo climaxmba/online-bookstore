@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  & > *:first-child {
+    flex: 1 0 270px;
+  }
+
+  .filters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1 0 270px;
+    max-width: 470px;
+    flex-wrap: wrap;
+
+    & > * {
+      flex: 1;
+    }
+
+    & > *:last-child {
+      flex: 0 0 95px;
+    }
+  }
+}

@@ -1,13 +1,12 @@
-import type React from "react";
-import { type SetStateAction, useEffect, useState } from "react";
+import { SetStateAction, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import { Button, TextField } from "@mui/material";
 import BookItem from "../bookItem/BookItem.tsx";
 import Loading, { LoadingError } from "../loading/loading";
+import { paths } from "../../_lib/constants.ts";
+import SearchAndFilter from "../searchAndFilter/SearchAndFilter";
 
 import styles from "./bookList.module.scss";
-import { paths } from "../../_lib/constants.ts";
 
 /** Requires container style: `{container: book-sectn / inline-size;}` */
 export default function BookList({
@@ -17,12 +16,17 @@ export default function BookList({
   getBooks: () => Promise<Book[] | []>;
   hasBookId: boolean;
 }) {
+  const [filters, setFilters] = useState<{
+    minPrice: number;
+    maxPrice: number | null;
+  }>({ minPrice: 0, maxPrice: null });
   const [loading, setLoading] = useState(true);
   const [books, setBooks] = useState<Book[] | []>([]);
   const [error, setError] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [params, setParams] = useSearchParams();
-  const {q} = Object.fromEntries(params);
+  const [filteredBooks, setFilteredBooks] = useState(books);
+  const { q } = Object.fromEntries(params);
   const isInBooksPage = location.pathname.includes(paths.books);
 
   useEffect(() => {
@@ -37,16 +41,28 @@ export default function BookList({
   }, [getBooks]);
 
   useEffect(() => {
-    if (isInBooksPage && q) setSearchQuery(q)
-
+    if (isInBooksPage && q) setSearchQuery(q);
     setParams({});
   }, [isInBooksPage, q, setParams]);
 
-  const filteredBooks = searchQuery
-    ? books.filter((book) =>
-        book.title.toLocaleLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : books;
+  useEffect(() => {
+    setFilteredBooks(
+      books.filter((book) => {
+        if (
+          (book.price >= filters.minPrice &&
+            filters.maxPrice !== null &&
+            book.price <= filters.maxPrice) ||
+          (book.price >= filters.minPrice && filters.maxPrice === null)
+        ) {
+          if (
+            book.title.toLocaleLowerCase().includes(searchQuery.toLowerCase())
+          )
+            return true;
+        }
+        return false;
+      })
+    );
+  }, [books, filters, searchQuery]);
 
   return (
     <>
@@ -57,7 +73,12 @@ export default function BookList({
       ) : (
         <div className={hasBookId ? styles.collapsableBooks : styles.books}>
           <h1>Books</h1>
-          <SearchAndFilter query={searchQuery} setQuery={setSearchQuery} />
+          <SearchAndFilter
+            query={searchQuery}
+            setQuery={setSearchQuery}
+            filters={filters}
+            setFilters={setFilters}
+          />
           {filteredBooks.length ? (
             <div className={styles.list}>
               {filteredBooks.map((book) => (
@@ -83,27 +104,5 @@ export default function BookList({
         </div>
       )}
     </>
-  );
-}
-
-function SearchAndFilter({
-  query,
-  setQuery,
-}: {
-  query: string;
-  setQuery: React.Dispatch<SetStateAction<typeof query>>;
-}) {
-  return (
-    <div className={styles.searchAndFilter}>
-      <TextField
-        variant="standard"
-        label="Search Books"
-        onChange={(e) => setQuery(e.target.value)}
-        value={query}
-      />
-      <Button>
-        Filters
-      </Button>
-    </div>
   );
 }
