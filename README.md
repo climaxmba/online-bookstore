@@ -11,7 +11,7 @@ A user-friendly bookstore where users can browse books, add them to wish-list, a
 ## 🚀 Usage
 
 ### Opening the demo
-Open [https://climaxmba-bookstore.netlify.app/](https://climaxmba-roamtnt.netlify.app/) in your browser. You could also clone this project and run this command if you have `npm` installed and love the long process. When it's done, open [http://localhost:5173](http://localhost:5173) to see the demo. 
+Open [https://climaxmba-bookstore.netlify.app/](https://climaxmba-bookstore.netlify.app/) in your browser. You could also clone this project and run this command if you have `npm` installed and love the long process. When it's done, open [http://localhost:5173](http://localhost:5173) to see the demo. 
 ```bash
 npm install && npm run dev
 ```
