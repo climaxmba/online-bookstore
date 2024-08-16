@@ -17,9 +17,26 @@
 .heroSection {
   padding-top: $navbar-offset;
   min-height: 100lvh;
+  position: relative;
+  overflow: hidden;
+  font-weight: 600; // Increase legibility in busy background
 
   & > * {
     margin: 1rem;
+  }
+
+  .bgImage {
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    object-position: top;
+    filter: saturate(2);
+    pointer-events: none;
   }
 
   h1 {

@@ -51,6 +51,7 @@ function HeroSection() {
 
   return (
     <div className={styles.heroSection}>
+      <img className={styles.bgImage} src="https://images.pexels.com/photos/1545590/pexels-photo-1545590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" />
       <div className={styles.pannels}>
         <div>
           <h1>Escape into a World of Stories.</h1>
