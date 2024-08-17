@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { HashLink } from 'react-router-hash-link';
 
 import {
   CardGiftcardOutlined,
@@ -8,12 +9,12 @@ import {
   ShoppingBagOutlined,
   StarOutline,
 } from "@mui/icons-material";
+import { Badge } from "@mui/material";
 import { paths } from "../../_lib/constants";
 import { RootState } from "../../_lib/redux/store";
 
 import logoSrc from "../../assets/logo.svg";
 import styles from "./navbar.module.scss";
-import { Badge } from "@mui/material";
 
 export default function Navbar() {
   return (
@@ -42,9 +43,9 @@ export default function Navbar() {
             </NavLink>
           </li>
           <li>
-            <a className={styles.link} href="/#categories">
+            <HashLink to="/#categories" className={styles.link}>
               Categories
-            </a>
+            </HashLink>
           </li>
         </ul>
 
@@ -72,14 +73,14 @@ function IconLinks() {
 
   return (
     <div className={styles.iconLinks}>
-      <a className={styles.link} href="/#trending">
+      <HashLink to="/#trending" className={styles.link}>
         <LineAxisOutlined />
         Trending
-      </a>
+      </HashLink>
 
-      <a href={"/#deals"}>
+      <HashLink to={"/#deals"}>
         <CardGiftcardOutlined className={styles.dealsIcon} /> Deals
-      </a>
+      </HashLink>
 
       <Badge
         badgeContent={wishlistLength}
@@ -169,9 +170,9 @@ function MobileNav() {
           </NavLink>
         </li>
         <li>
-          <a className={styles.link} href="/#categories">
+          <HashLink to="/#categories" className={styles.link}>
             Categories
-          </a>
+          </HashLink>
         </li>
         <li>
           <IconLinks />
