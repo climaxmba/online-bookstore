@@ -24,9 +24,13 @@
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 20%, 2rem);
+    text-wrap: nowrap;
     display: flex;
+    gap: 6px;
+    text-align: center;
     align-items: center;
+    justify-content: center;
   }
 
   .author {
