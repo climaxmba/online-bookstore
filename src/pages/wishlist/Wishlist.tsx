@@ -14,7 +14,7 @@ export default function Category() {
       <h1
         style={{
           marginTop: "5rem",
-          marginLeft: "1rem"
+          marginLeft: "1rem",
         }}
       >
         Wishlist
@@ -26,15 +26,17 @@ export default function Category() {
           ))}
         </section>
       ) : (
-        <p
-          style={{
-            textAlign: "center",
-            fontSize: "large",
-            fontStyle: "italic",
-          }}
-        >
-          Oops! Noting's here yet.
-        </p>
+        <section className={styles.noneContainer}>
+          <p
+            style={{
+              textAlign: "center",
+              fontSize: "large",
+              fontStyle: "italic",
+            }}
+          >
+            Oops! Noting's here yet.
+          </p>
+        </section>
       )}
     </Layout>
   );
