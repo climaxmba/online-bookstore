@@ -16,7 +16,8 @@ $menu-width: 28px;
   gap: 1rem;
   align-items: center;
 
-  & > * {
+  & > *,
+  .badge > * {
     display: flex;
     flex-direction: column;
     align-items: center;

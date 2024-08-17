@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-import { paths } from "../../_lib/constants";
-
-import logoSrc from "../../assets/logo.svg";
-import styles from "./navbar.module.scss";
 import {
   CardGiftcardOutlined,
   LineAxisOutlined,
   ShoppingBagOutlined,
   StarOutline,
 } from "@mui/icons-material";
+import { paths } from "../../_lib/constants";
+import { RootState } from "../../_lib/redux/store";
+
+import logoSrc from "../../assets/logo.svg";
+import styles from "./navbar.module.scss";
+import { Badge } from "@mui/material";
 
 export default function Navbar() {
   return (
@@ -62,6 +65,11 @@ function Logo() {
 }
 
 function IconLinks() {
+  const cartLength = useSelector((state: RootState) => state.cart.value).length;
+  const wishlistLength = useSelector(
+    (state: RootState) => state.wishlist.value
+  ).length;
+
   return (
     <div className={styles.iconLinks}>
       <a className={styles.link} href="/#trending">
@@ -73,21 +81,39 @@ function IconLinks() {
         <CardGiftcardOutlined className={styles.dealsIcon} /> Deals
       </a>
 
-      <NavLink
-        className={({ isActive }) => (isActive ? styles.active : styles.link)}
-        to={paths.wishlist}
+      <Badge
+        badgeContent={wishlistLength}
+        color="primary"
+        sx={{
+          ".MuiBadge-badge": { color: "white", top: "4px" },
+        }}
+        className={styles.badge}
       >
-        <StarOutline />
-        Wishlist
-      </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          to={paths.wishlist}
+        >
+          <StarOutline />
+          Wishlist
+        </NavLink>
+      </Badge>
 
-      <NavLink
-        className={({ isActive }) => (isActive ? styles.active : styles.link)}
-        to={paths.cart}
+      <Badge
+        badgeContent={cartLength}
+        color="primary"
+        sx={{
+          ".MuiBadge-badge": { color: "white", top: "4px" },
+        }}
+        className={styles.badge}
       >
-        <ShoppingBagOutlined />
-        Cart
-      </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? styles.active : styles.link)}
+          to={paths.cart}
+        >
+          <ShoppingBagOutlined />
+          Cart
+        </NavLink>
+      </Badge>
     </div>
   );
 }
@@ -95,19 +121,32 @@ function IconLinks() {
 function MobileNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const handleMenuClick = () => setMenuOpen((val) => !val);
+  const cartLength = useSelector((state: RootState) => state.cart.value).length;
+  const wishlistLength = useSelector(
+    (state: RootState) => state.wishlist.value
+  ).length;
 
   return (
     <nav className={styles.mobileContainer}>
       <Logo />
-      <button
-        title="Menu"
-        className={`${styles.menu} ${menuOpen && styles.menuOpen}`}
-        onClick={handleMenuClick}
+
+      <Badge
+        badgeContent={cartLength || wishlistLength}
+        color="primary"
+        variant="dot"
+        sx={{ ".MuiBadge-dot": { top: "8px" } }}
       >
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+        <button
+          title="Menu"
+          className={`${styles.menu} ${menuOpen && styles.menuOpen}`}
+          onClick={handleMenuClick}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </Badge>
+
       <ul className={`${styles.links} ${menuOpen && styles.linksOpen}`}>
         <li>
           <NavLink
