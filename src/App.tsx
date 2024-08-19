@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material";
 
 import Home from "./pages/home/Home";
-import Error from "./pages/404/Error";
+import NoRoute from "./pages/404/NoRoute";
 import Books from "./pages/books/Books";
 import Details from "./pages/books/detals/Details";
 import Wishlist from "./pages/wishlist/Wishlist";
@@ -45,7 +45,7 @@ export default function App() {
     {
       path: paths.root,
       element: <Home />,
-      errorElement: <Error />,
+      errorElement: <NoRoute />,
     },
     {
       path: paths.books,
