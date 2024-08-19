@@ -1,19 +1,20 @@
+import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material";
 
-import Home from "./pages/home/Home";
-import NoRoute from "./pages/404/NoRoute";
-import Books from "./pages/books/Books";
-import Details from "./pages/books/detals/Details";
-import Wishlist from "./pages/wishlist/Wishlist";
-import Search from "./pages/search/Search";
-import Cart from "./pages/cart/Cart";
-import Checkout from "./pages/checkout/Checkout";
+const Home = React.lazy(() =>  import("./pages/home/Home"))
+const NoRoute = React.lazy(() => import("./pages/404/NoRoute"));
+const Books = React.lazy(() => import("./pages/books/Books"));
+const Details = React.lazy(() => import("./pages/books/detals/Details"));
+const Wishlist = React.lazy(() => import("./pages/wishlist/Wishlist"));
+const Cart = React.lazy(() => import("./pages/cart/Cart"));
+const Checkout = React.lazy(() => import("./pages/checkout/Checkout"));
+const Category = React.lazy(() => import("./pages/category/Category"));
+import Loading from "./components/loading/loading";
 
 import { paths } from "./_lib/constants";
 import { store } from "./_lib/redux/store";
-import Category from "./pages/category/Category";
 
 const theme = createTheme({
   palette: {
@@ -70,10 +71,6 @@ export default function App() {
       element: <Wishlist />,
     },
     {
-      path: paths.search,
-      element: <Search />,
-    },
-    {
       path: paths.cart,
       element: <Cart />,
     },
@@ -86,7 +83,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <RouterProvider router={router} />
+        <Suspense fallback={<Loading />}>
+          <RouterProvider router={router} />
+        </Suspense>
       </Provider>
     </ThemeProvider>
   );
