@@ -25,7 +25,7 @@ npm install && npm run dev
 4. On the navbar (or menu for mobile users), click cart.
 5. Click **PROCEED TO CHECKOUT**.
 6. Follow the steps on the checkout page and place your order.
-> PS: This is jus a demo project, you're not really buying books.
+> PS: This is just a demo project, you're not really buying books.
 
 ### Working with wishlist
 Each book item has a star icon, it allows you to add and remove the book from wishlist.
